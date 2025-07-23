@@ -58,20 +58,20 @@ const SEOHead: React.FC<SEOHeadProps> = ({
           "description": description,
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "123 Tech Street",
-            "addressLocality": "San Francisco",
-            "addressRegion": "CA",
-            "postalCode": "94105",
-            "addressCountry": "US"
+            "streetAddress": "Fazal e Haq Rd, Block D G 6/2'",
+            "addressLocality": "Blue Area",
+            "addressRegion": "Islamabad",
+            "postalCode": "44000",
+            "addressCountry": " Pakistan"
           },
           "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+1-555-123-4567",
+            "telephone": "+92-348-930-0422",
             "contactType": "customer service",
             "email": "carveittech@gmail.com"
           },
           "sameAs": [
-            "https://linkedin.com/company/carveit-tech",
+            "https://www.linkedin.com/in/carveit-tech",
             "https://twitter.com/carveittech",
             "https://github.com/carveittech"
           ],

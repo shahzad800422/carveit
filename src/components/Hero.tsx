@@ -23,7 +23,7 @@ const Hero = () => {
           {/* Badge */}
           <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-blue-100 text-sm font-medium mb-8 animate-slide-up hover-glow">
             <Star className="h-4 w-4 mr-2 text-yellow-400" />
-            Trusted by 500+ companies worldwide
+            Trusted by 100+ companies worldwide
           </div>
 
           {/* Main heading */}

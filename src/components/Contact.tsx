@@ -71,19 +71,19 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      content: '+1 (555) 123-4567',
-      description: 'Mon-Fri 9AM-6PM PST'
+      content: '+92 (348) 9300422',
+      description: 'Mon-Fri 2PM-12AM PST'
     },
     {
       icon: Mail,
       title: 'Email Us',
-      content: 'hello@techflow.com',
+      content: 'carveittech@gmail.com',
       description: 'We respond within 24 hours'
     },
     {
       icon: MapPin,
       title: 'Visit Us',
-      content: '123 Tech Street, San Francisco, CA 94105',
+      content: 'Fazal e Haq Rd, Block D G 6/2 Blue Area, Islamabad, Pakistan',
       description: 'By appointment only'
     }
   ];
@@ -204,11 +204,13 @@ const Contact = () => {
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent hover-glow transition-all duration-200"
                   >
                     <option value="">Select a service</option>
-                    <option value="web-development">Web Development</option>
-                    <option value="mobile-development">Mobile App Development</option>
-                    <option value="it-consulting">IT Consulting</option>
-                    <option value="multiple">Multiple Services</option>
-                    <option value="other">Other</option>
+<option value="web-development">Web Development</option>
+<option value="mobile-development">Mobile App Development</option>
+<option value="it-consulting">IT Consulting</option>
+<option value="legal-services">Legal Services</option>
+<option value="content-writing">Content Writing & Publishing</option>
+<option value="multiple">Multiple Services</option>
+<option value="other">Other</option>
                   </select>
                 </div>
               </div>
@@ -226,9 +228,9 @@ const Contact = () => {
                 >
                   <option value="">Select budget range</option>
                   <option value="under-5k">Under $5,000</option>
-                  <option value="5k-15k">$5,000 - $15,000</option>
-                  <option value="15k-30k">$15,000 - $30,000</option>
-                  <option value="30k-50k">$30,000 - $50,000</option>
+                  <option value="5k-10k">$5,000 - $10,000</option>
+                  <option value="10k-20k">$10,000 - $20,000</option>
+                  <option value="20k-30k">$20,000 - $30,000</option>
                   <option value="over-50k">Over $50,000</option>
                 </select>
               </div>
@@ -306,7 +308,7 @@ const Contact = () => {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Monday - Friday</span>
-                  <span className="text-gray-900">9:00 AM - 6:00 PM PST</span>
+                  <span className="text-gray-900">2:00 PM - 12:00 AM PST</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Saturday</span>
@@ -328,11 +330,11 @@ const Contact = () => {
             {[
               {
                 question: 'How much does a typical project cost?',
-                answer: 'Costs vary by project scope. Simple business websites start at $2,500, mobile apps at $8,000, and IT consulting at $150/hour. We provide detailed quotes after understanding your needs.'
+                answer: 'Costs vary by project scope. Simple business websites start at $2,000, mobile apps at $5,000, and IT consulting at $50/hour. We provide detailed quotes after understanding your needs.'
               },
               {
                 question: 'How long do projects typically take?',
-                answer: 'Simple websites take 2-4 weeks, mobile apps 6-12 weeks, and complex systems 3-6 months. We provide realistic timelines and keep you updated throughout the process.'
+                answer: 'Simple websites take 2-4 weeks, mobile apps 6-8 weeks, and complex systems 3-6 months. We provide realistic timelines and keep you updated throughout the process.'
               },
               {
                 question: 'Do you provide ongoing support?',
@@ -369,7 +371,8 @@ const Contact = () => {
               Send Email
             </a>
             <a 
-              href="https://linkedin.com/company/carveit-tech"
+              href="www.linkedin.com/in/carveit-tech
+"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200 inline-block btn-animated hover-lift"

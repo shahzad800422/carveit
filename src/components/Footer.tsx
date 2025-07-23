@@ -25,11 +25,11 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               {[
-                { Icon: LinkedIn, url: 'https://linkedin.com/company/carveit-tech' },
-                { Icon: Twitter, url: 'https://twitter.com/carveittech' },
+                { Icon: LinkedIn, url: 'www.linkedin.com/in/carveit-tech' },
+                //{ Icon: Twitter, url: 'https://twitter.com/carveittech' },
                 { Icon: Github, url: 'https://github.com/carveittech' },
-                { Icon: Facebook, url: 'https://facebook.com/carveittech' },
-                { Icon: Instagram, url: 'https://instagram.com/carveittech' }
+                //{ Icon: Facebook, url: 'https://facebook.com/carveittech' },
+                //{ Icon: Instagram, url: 'https://instagram.com/carveittech' }
               ].map((social, index) => (
                 <a 
                   key={index} 
@@ -88,7 +88,7 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-blue-400" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+92 (348) 9300422</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-blue-400" />
@@ -98,7 +98,7 @@ const Footer = () => {
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 text-blue-400 mt-1" />
-                <span className="text-gray-300">123 Tech Street<br />San Francisco, CA 94105</span>
+                <span className="text-gray-300">Fazal e Haq Rd, Block D G 6/2 Blue Area,<br /> Islamabad, Pakistan</span>
               </div>
             </div>
 
@@ -123,7 +123,7 @@ const Footer = () => {
         <div className="py-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2024 CARVEIT TECH. All rights reserved.
+              © 2025 CARVEIT TECH. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm">
               <Link to="/privacy-policy" className="text-gray-400 hover:text-blue-400 transition-colors duration-200">

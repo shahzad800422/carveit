@@ -107,7 +107,7 @@ const Careers = () => {
               <div className="flex items-center space-x-8 text-sm text-gray-600">
                 <div className="flex items-center">
                   <Users className="h-4 w-4 mr-2 text-blue-600" />
-                  50+ Team Members
+                  15+ Team Members
                 </div>
                 <div className="flex items-center">
                   <MapPin className="h-4 w-4 mr-2 text-blue-600" />

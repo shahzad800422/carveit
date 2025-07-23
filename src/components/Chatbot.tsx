@@ -41,9 +41,9 @@ const Chatbot = () => {
   ];
 
   const botResponses = {
-    "what services do you offer": "We offer three main services:\n\n🌐 **Web Development** - Custom websites and web applications starting at $2,500\n📱 **Mobile App Development** - iOS & Android apps starting at $8,000\n⚙️ **IT Consulting** - Strategic technology consulting at $150/hour\n\nWould you like to know more about any specific service?",
+    "what services do you offer": "We offer three main services:\n\n🌐 **Web Development** - Custom websites and web applications starting at $2,000\n📱 **Mobile App Development** - iOS & Android apps starting at $8,000\n⚙️ **IT Consulting** - Strategic technology consulting at $150/hour\n\nWould you like to know more about any specific service?",
     
-    "how much does a website cost": "Our website development starts at $2,500 for basic business websites. The final cost depends on:\n\n• Complexity level (Simple to Enterprise)\n• Custom features needed\n• Design requirements\n• Timeline\n\nWould you like to try our **Project Estimator** for a personalized quote? I can guide you there!",
+    "how much does a website cost": "Our website development starts at $2,000 for basic business websites. The final cost depends on:\n\n• Complexity level (Simple to Enterprise)\n• Custom features needed\n• Design requirements\n• Timeline\n\nWould you like to try our **Project Estimator** for a personalized quote? I can guide you there!",
     
     "can i get a quote": "Absolutely! I'd be happy to help you get a quote. You have a few options:\n\n1. **Quick Estimate** - Try our interactive Project Estimator\n2. **Detailed Quote** - Fill out our contact form\n3. **Schedule a Call** - Speak directly with our team\n\nWhich option works best for you?",
     
@@ -94,7 +94,7 @@ const Chatbot = () => {
     }
     
     if (lowerMessage.includes('contact') || lowerMessage.includes('email') || lowerMessage.includes('phone')) {
-      return "You can reach us at:\n\n📧 **Email**: carveittech@gmail.com\n📞 **Phone**: +1 (555) 123-4567\n🕒 **Hours**: Mon-Fri 9AM-6PM PST\n\nWould you like me to help you get a quote or schedule a call?";
+      return "You can reach us at:\n\n📧 **Email**: carveittech@gmail.com\n📞 **Phone**: +92 (348) 9300422\n🕒 **Hours**: Mon-Fri 9AM-6PM PST\n\nWould you like me to help you get a quote or schedule a call?";
     }
     
     // Default response

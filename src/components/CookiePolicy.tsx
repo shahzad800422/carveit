@@ -142,8 +142,8 @@ const CookiePolicy = () => {
                 <p className="text-gray-700">
                   <strong>CARVEIT TECH</strong><br />
                   Email: carveittech@gmail.com<br />
-                  Phone: +1 (555) 123-4567<br />
-                  Address: 123 Tech Street, San Francisco, CA 94105
+                  Phone: +92 (348) 9300422<br />
+                  Address: Fazal e Haq Rd, Block D G 6/2 Blue Area, Islamabad, Pakistan
                 </p>
               </div>
             </section>
