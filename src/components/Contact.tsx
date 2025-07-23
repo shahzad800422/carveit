@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Clock, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock, MessageSquare, CheckCircle, X } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,8 @@ const Contact = () => {
     budget: '',
     message: ''
   });
+  const [showNotification, setShowNotification] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -20,6 +22,8 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    setIsSubmitting(true);
     
     // Create mailto link with form data
     const subject = encodeURIComponent(`New Quote Request from ${formData.name}`);
@@ -40,7 +44,20 @@ This email was sent from the CARVEIT TECH website contact form.
     const mailtoLink = `mailto:carveittech@gmail.com?subject=${subject}&body=${body}`;
     window.location.href = mailtoLink;
     
-    alert('Thank you for your message! Your email client will open to send the message. We\'ll get back to you within 24 hours.');
+    // Show notification after a brief delay
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setShowNotification(true);
+      
+      // Auto-hide notification after 5 seconds
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+    }, 1000);
+  };
+
+  const closeNotification = () => {
+    setShowNotification(false);
   };
 
   const contactInfo = [
@@ -66,6 +83,38 @@ This email was sent from the CARVEIT TECH website contact form.
 
   return (
     <section id="contact" className="py-20 bg-white">
+      {/* Email Notification Toast */}
+      {showNotification && (
+        <div className="fixed top-4 right-4 z-50 bg-white border border-green-200 rounded-lg shadow-lg p-4 max-w-sm animate-slide-in-right">
+          <div className="flex items-start">
+            <div className="flex-shrink-0">
+              <CheckCircle className="h-6 w-6 text-green-500" />
+            </div>
+            <div className="ml-3 flex-1">
+              <h3 className="text-sm font-semibold text-gray-900">Message Sent Successfully!</h3>
+              <p className="text-sm text-gray-600 mt-1">
+                Your email client will open to send the message. We'll get back to you within 24 hours.
+              </p>
+              <div className="mt-2 flex items-center text-xs text-gray-500">
+                <Mail className="h-3 w-3 mr-1" />
+                Sent to: carveittech@gmail.com
+              </div>
+            </div>
+            <button
+              onClick={closeNotification}
+              className="flex-shrink-0 ml-2 text-gray-400 hover:text-gray-600 transition-colors"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+          <div className="mt-3 bg-green-50 rounded-md p-2">
+            <p className="text-xs text-green-700">
+              💡 <strong>Tip:</strong> If your email client doesn't open automatically, please copy the details and email us directly.
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -195,10 +244,20 @@ This email was sent from the CARVEIT TECH website contact form.
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center btn-animated hover-lift"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center btn-animated hover-lift disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Get Free Quote
-                <Send className="ml-2 h-5 w-5" />
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    Get Free Quote
+                    <Send className="ml-2 h-5 w-5" />
+                  </>
+                )}
               </button>
             </form>
           </div>

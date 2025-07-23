@@ -143,9 +143,14 @@ const Blog = () => {
               Get Free PDF
             </button>
           </div>
-          <p className="text-xs text-gray-500 mt-3">
-            Free download: "Top 10 App Development Tips" - A comprehensive guide for business owners
-          </p>
+          <div className="mt-4">
+            <p className="text-xs text-gray-500">
+              Free download: "Top 10 App Development Tips" - A comprehensive guide for business owners
+            </p>
+            <p className="text-xs text-gray-400 mt-1">
+              📧 Delivered instantly to your inbox
+            </p>
+          </div>
         </div>
       </div>
     </section>
