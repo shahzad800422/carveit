@@ -32,14 +32,17 @@ const Services = () => {
     }
   ];
 
-  const trustBadges = [
-    { name: 'AWS', logo: '☁️' },
-    { name: 'React', logo: '⚛️' },
-    { name: 'Node.js', logo: '🟢' },
-    { name: 'Flutter', logo: '💙' },
-    { name: 'MongoDB', logo: '🍃' },
-    { name: 'Docker', logo: '🐳' }
-  ];
+const trustBadges = [
+  { name: 'AWS', logo: '☁️' },
+  { name: 'React', logo: '⚛️' },
+  { name: 'Node.js', logo: '🟢' },
+  { name: 'Flutter', logo: '💙' },
+  { name: 'MongoDB', logo: '🍃' },
+  { name: 'Docker', logo: '🐳' },
+  { name: 'Android/iOS', logo: '📱' },
+  { name: 'Paralegal Content Writer', logo: '🖋️' }
+];
+
 
   return (
     <section id="services" className="py-20 bg-white">

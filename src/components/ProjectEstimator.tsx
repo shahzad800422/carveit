@@ -15,11 +15,11 @@ const ProjectEstimator = () => {
   const [estimate, setEstimate] = useState(null);
 
   const projectTypes = [
-    { id: 'website', name: 'Business Website', basePrice: 2500, description: 'Professional website with CMS' },
+    { id: 'website', name: 'Business Website', basePrice: 2000, description: 'Professional website with CMS' },
     { id: 'ecommerce', name: 'E-commerce Store', basePrice: 5000, description: 'Online store with payment processing' },
     { id: 'webapp', name: 'Web Application', basePrice: 8000, description: 'Custom web application' },
-    { id: 'mobile', name: 'Mobile App', basePrice: 12000, description: 'iOS/Android mobile application' },
-    { id: 'consulting', name: 'IT Consulting', basePrice: 150, description: 'Hourly consulting services' }
+    { id: 'mobile', name: 'Mobile App', basePrice: 8000, description: 'iOS/Android mobile application' },
+    { id: 'consulting', name: 'IT Consulting', basePrice: 50, description: 'Hourly consulting services' }
   ];
 
   const complexityLevels = [
@@ -35,8 +35,8 @@ const ProjectEstimator = () => {
     { id: 'api', name: 'API Integration', price: 600 },
     { id: 'admin', name: 'Admin Dashboard', price: 1500 },
     { id: 'analytics', name: 'Analytics & Reporting', price: 900 },
-    { id: 'notifications', name: 'Push Notifications', price: 700 },
-    { id: 'chat', name: 'Live Chat', price: 500 },
+    { id: 'notifications', name: 'Push Notifications', price: 500 },
+    { id: 'chat', name: 'Live Chat', price: 200 },
     { id: 'search', name: 'Advanced Search', price: 800 }
   ];
 

@@ -371,8 +371,7 @@ const Contact = () => {
               Send Email
             </a>
             <a 
-              href="www.linkedin.com/in/carveit-tech
-"
+              href="www.linkedin.com/in/carveit-tech"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200 inline-block btn-animated hover-lift"
