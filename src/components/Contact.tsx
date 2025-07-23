@@ -26,7 +26,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     // Send email via backend API
-    fetch('/api/send-email', {
+    fetch('/.netlify/functions/send-email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -52,13 +52,14 @@ const Contact = () => {
           setShowNotification(false);
         }, 5000);
       } else {
-        alert('Failed to send email. Please try again or contact us directly.');
+        console.error('Email error:', data);
+        alert(`Failed to send email: ${data.details || data.error}. Please try again or contact us directly at carveittech@gmail.com`);
       }
     })
     .catch(error => {
       setIsSubmitting(false);
       console.error('Error:', error);
-      alert('Failed to send email. Please try again or contact us directly.');
+      alert('Network error: Failed to send email. Please try again or contact us directly at carveittech@gmail.com');
     });
   };
 
