@@ -25,35 +25,41 @@ const Contact = () => {
     
     setIsSubmitting(true);
     
-    // Create mailto link with form data
-    const subject = encodeURIComponent(`New Quote Request from ${formData.name}`);
-    const body = encodeURIComponent(`
-Name: ${formData.name}
-Email: ${formData.email}
-Company: ${formData.company}
-Service Interest: ${formData.service}
-Budget: ${formData.budget}
-
-Project Details:
-${formData.message}
-
----
-This email was sent from the CARVEIT TECH website contact form.
-    `);
-    
-    const mailtoLink = `mailto:carveittech@gmail.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-    
-    // Show notification after a brief delay
-    setTimeout(() => {
+    // Send email via backend API
+    fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
       setIsSubmitting(false);
-      setShowNotification(true);
-      
-      // Auto-hide notification after 5 seconds
-      setTimeout(() => {
-        setShowNotification(false);
-      }, 5000);
-    }, 1000);
+      if (data.success) {
+        setShowNotification(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          service: '',
+          budget: '',
+          message: ''
+        });
+        // Auto-hide notification after 5 seconds
+        setTimeout(() => {
+          setShowNotification(false);
+        }, 5000);
+      } else {
+        alert('Failed to send email. Please try again or contact us directly.');
+      }
+    })
+    .catch(error => {
+      setIsSubmitting(false);
+      console.error('Error:', error);
+      alert('Failed to send email. Please try again or contact us directly.');
+    });
   };
 
   const closeNotification = () => {
@@ -93,11 +99,11 @@ This email was sent from the CARVEIT TECH website contact form.
             <div className="ml-3 flex-1">
               <h3 className="text-sm font-semibold text-gray-900">Message Sent Successfully!</h3>
               <p className="text-sm text-gray-600 mt-1">
-                Your email client will open to send the message. We'll get back to you within 24 hours.
+                Your message has been sent successfully via our secure email system. We'll get back to you within 24 hours.
               </p>
               <div className="mt-2 flex items-center text-xs text-gray-500">
                 <Mail className="h-3 w-3 mr-1" />
-                Sent to: carveittech@gmail.com
+                Delivered to: carveittech@gmail.com
               </div>
             </div>
             <button
@@ -109,7 +115,7 @@ This email was sent from the CARVEIT TECH website contact form.
           </div>
           <div className="mt-3 bg-green-50 rounded-md p-2">
             <p className="text-xs text-green-700">
-              💡 <strong>Tip:</strong> If your email client doesn't open automatically, please copy the details and email us directly.
+              💡 <strong>Secure:</strong> Your message was sent through our encrypted email system for maximum security.
             </p>
           </div>
         </div>

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:api": "echo 'API endpoints ready for deployment'",
     "lint": "eslint .",
     "preview": "vite preview"
   },
