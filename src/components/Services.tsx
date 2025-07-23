@@ -9,7 +9,7 @@ const Services = () => {
       description: 'Custom websites and web applications built with modern technologies to drive business growth and streamline operations.',
       benefits: 'Increase online presence by 300% and automate business processes',
       features: ['Responsive Business Websites', 'E-commerce Solutions', 'Customer Portals', 'Booking Systems', 'CMS Integration'],
-      pricing: 'Starting at $2,500',
+      pricing: 'Starting at $2,000',
       technologies: ['React', 'Node.js', 'WordPress', 'Shopify']
     },
     {
@@ -18,7 +18,7 @@ const Services = () => {
       description: 'Native and cross-platform mobile applications that engage customers and drive business growth through innovative features.',
       benefits: 'Increase customer engagement by 250% with mobile-first approach',
       features: ['iOS & Android Apps', 'Cross-Platform Development', 'Push Notifications', 'Offline Functionality', 'App Store Publishing'],
-      pricing: 'Starting at $8,000',
+      pricing: 'Starting at $5,000',
       technologies: ['React Native', 'Flutter', 'Swift', 'Kotlin']
     },
     {
@@ -27,7 +27,7 @@ const Services = () => {
       description: 'Strategic technology consulting to optimize operations, enhance security, and accelerate digital transformation.',
       benefits: 'Reduce IT costs by 40% while improving efficiency and security',
       features: ['Technology Audits', 'Cloud Migration', 'Security Assessment', 'Digital Strategy', 'DevOps Implementation'],
-      pricing: 'Starting at $150/hour',
+      pricing: 'Starting at $50/hour',
       technologies: ['AWS', 'Azure', 'Docker', 'Kubernetes']
     }
   ];

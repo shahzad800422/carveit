@@ -17,8 +17,8 @@ const ProjectEstimator = () => {
   const projectTypes = [
     { id: 'website', name: 'Business Website', basePrice: 2000, description: 'Professional website with CMS' },
     { id: 'ecommerce', name: 'E-commerce Store', basePrice: 5000, description: 'Online store with payment processing' },
-    { id: 'webapp', name: 'Web Application', basePrice: 8000, description: 'Custom web application' },
-    { id: 'mobile', name: 'Mobile App', basePrice: 8000, description: 'iOS/Android mobile application' },
+    { id: 'webapp', name: 'Web Application', basePrice: 6000, description: 'Custom web application' },
+    { id: 'mobile', name: 'Mobile App', basePrice: 5000, description: 'iOS/Android mobile application' },
     { id: 'consulting', name: 'IT Consulting', basePrice: 50, description: 'Hourly consulting services' }
   ];
 
