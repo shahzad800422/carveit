@@ -88,7 +88,6 @@ const Hero = () => {
         >
           <div className="w-1 h-3 bg-white/70 rounded-full animate-bounce group-hover:bg-white transition-colors duration-300"></div>
         </button>
-        </div>
       </div>
     </section>
   );
