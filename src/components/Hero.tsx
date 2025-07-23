@@ -65,7 +65,7 @@ const Hero = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-fade-in" style={{animationDelay: '1s'}}>
             {[
-              { number: '500+', label: 'Projects Completed' },
+              { number: '100+', label: 'Projects Completed' },
               { number: '98%', label: 'Client Satisfaction' },
               { number: '5 Years', label: 'Industry Experience' },
               { number: '24/7', label: 'Support Available' }
