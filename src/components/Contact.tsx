@@ -1,0 +1,320 @@
+import React, { useState } from 'react';
+import { Mail, Phone, MapPin, Send, Clock, MessageSquare } from 'lucide-react';
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    service: '',
+    budget: '',
+    message: ''
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`New Quote Request from ${formData.name}`);
+    const body = encodeURIComponent(`
+Name: ${formData.name}
+Email: ${formData.email}
+Company: ${formData.company}
+Service Interest: ${formData.service}
+Budget: ${formData.budget}
+
+Project Details:
+${formData.message}
+
+---
+This email was sent from the CARVEIT TECH website contact form.
+    `);
+    
+    const mailtoLink = `mailto:carveittech@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = mailtoLink;
+    
+    alert('Thank you for your message! Your email client will open to send the message. We\'ll get back to you within 24 hours.');
+  };
+
+  const contactInfo = [
+    {
+      icon: Phone,
+      title: 'Call Us',
+      content: '+1 (555) 123-4567',
+      description: 'Mon-Fri 9AM-6PM PST'
+    },
+    {
+      icon: Mail,
+      title: 'Email Us',
+      content: 'hello@techflow.com',
+      description: 'We respond within 24 hours'
+    },
+    {
+      icon: MapPin,
+      title: 'Visit Us',
+      content: '123 Tech Street, San Francisco, CA 94105',
+      description: 'By appointment only'
+    }
+  ];
+
+  return (
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            Get Your Free Quote Today
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Ready to see how technology can transform your business? Schedule a free consultation and get a custom quote for your project.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div className="bg-gray-50 rounded-2xl p-8 scroll-animate hover-glow">
+            <div className="flex items-center mb-6">
+              <MessageSquare className="h-6 w-6 text-blue-600 mr-3 service-icon" />
+              <h3 className="text-2xl font-bold text-gray-900">Get Your Free Quote</h3>
+            </div>
+            
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent hover-glow transition-all duration-200"
+                    placeholder="John Doe"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent hover-glow transition-all duration-200"
+                    placeholder="john@example.com"
+                  />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                    Company Name
+                  </label>
+                  <input
+                    type="text"
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent hover-glow transition-all duration-200"
+                    placeholder="Your Company"
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                    Service Interest *
+                  </label>
+                  <select
+                    id="service"
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent hover-glow transition-all duration-200"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="web-development">Web Development</option>
+                    <option value="mobile-development">Mobile App Development</option>
+                    <option value="it-consulting">IT Consulting</option>
+                    <option value="multiple">Multiple Services</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-2">
+                  Project Budget
+                </label>
+                <select
+                  id="budget"
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent hover-glow transition-all duration-200"
+                >
+                  <option value="">Select budget range</option>
+                  <option value="under-5k">Under $5,000</option>
+                  <option value="5k-15k">$5,000 - $15,000</option>
+                  <option value="15k-30k">$15,000 - $30,000</option>
+                  <option value="30k-50k">$30,000 - $50,000</option>
+                  <option value="over-50k">Over $50,000</option>
+                </select>
+              </div>
+
+              <div>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  Project Details *
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  rows={6}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none hover-glow transition-all duration-200"
+                  placeholder="Tell us about your project, goals, and any specific requirements..."
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-4 rounded-lg font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-200 flex items-center justify-center btn-animated hover-lift"
+              >
+                Get Free Quote
+                <Send className="ml-2 h-5 w-5" />
+              </button>
+            </form>
+          </div>
+
+          {/* Contact Information */}
+          <div className="scroll-animate" style={{animationDelay: '0.2s'}}>
+            <h3 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h3>
+            
+            <div className="space-y-6 mb-8">
+              {contactInfo.map((info, index) => (
+                <div key={index} className="flex items-start space-x-4 hover-lift" style={{animationDelay: `${0.3 + index * 0.1}s`}}>
+                  <div className="p-3 bg-blue-100 rounded-lg hover-glow">
+                    <info.icon className="h-6 w-6 text-blue-600 service-icon" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold text-gray-900 mb-1">{info.title}</h4>
+                    <p className="text-gray-900 mb-1">{info.content}</p>
+                    <p className="text-gray-600 text-sm">{info.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Response Time */}
+            <div className="bg-blue-50 rounded-xl p-6 mb-8 hover-glow scroll-animate" style={{animationDelay: '0.6s'}}>
+              <div className="flex items-center mb-3">
+                <Clock className="h-5 w-5 text-blue-600 mr-2 service-icon" />
+                <h4 className="text-lg font-semibold text-blue-900">Fast Response Guarantee</h4>
+              </div>
+              <p className="text-blue-800 text-sm">
+                We respond to all quote requests within 4 hours during business hours. 
+                For urgent projects, call us directly for immediate assistance.
+              </p>
+            </div>
+
+            {/* Office Hours */}
+            <div className="bg-gray-50 rounded-xl p-6 hover-glow scroll-animate" style={{animationDelay: '0.8s'}}>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Office Hours</h4>
+              <div className="space-y-2 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Monday - Friday</span>
+                  <span className="text-gray-900">9:00 AM - 6:00 PM PST</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Saturday</span>
+                  <span className="text-gray-900">10:00 AM - 2:00 PM PST</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Sunday</span>
+                  <span className="text-gray-900">Closed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-20 scroll-animate">
+          <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Common Questions</h3>
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                question: 'How much does a typical project cost?',
+                answer: 'Costs vary by project scope. Simple business websites start at $2,500, mobile apps at $8,000, and IT consulting at $150/hour. We provide detailed quotes after understanding your needs.'
+              },
+              {
+                question: 'How long do projects typically take?',
+                answer: 'Simple websites take 2-4 weeks, mobile apps 6-12 weeks, and complex systems 3-6 months. We provide realistic timelines and keep you updated throughout the process.'
+              },
+              {
+                question: 'Do you provide ongoing support?',
+                answer: 'Yes! Every project includes 6 months of free support. After that, we offer affordable maintenance plans starting at $200/month to keep your systems running smoothly.'
+              },
+              {
+                question: 'What makes TechFlow different?',
+               question: 'What makes CARVEIT TECH different?',
+               answer: 'We specialize in small businesses and understand your unique challenges. We provide transparent pricing, dedicated project managers, and build solutions that actually improve your bottom line.'
+              }
+            ].map((faq, index) => (
+              <div key={index} className="bg-gray-50 rounded-lg p-6 hover-lift" style={{animationDelay: `${index * 0.1}s`}}>
+                <h4 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h4>
+                <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Live Chat & Social CTA */}
+        <div className="mt-16 text-center bg-gradient-to-r from-blue-600 to-teal-600 rounded-2xl p-8 text-white scroll-animate hover-glow">
+          <h3 className="text-2xl font-bold mb-4">Ready to Get Started? Let's Connect!</h3>
+          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+            Multiple ways to reach us! Schedule a call, send an email, or connect with us on social media for instant updates.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200 btn-animated hover-lift">
+              Schedule Call
+            </button>
+            <a 
+              href="mailto:carveittech@gmail.com"
+              className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors duration-200 inline-block btn-animated hover-lift"
+            >
+              Send Email
+            </a>
+            <a 
+              href="https://linkedin.com/company/carveit-tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200 inline-block btn-animated hover-lift"
+            >
+              Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
