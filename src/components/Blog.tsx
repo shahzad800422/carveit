@@ -1,4 +1,3 @@
-import React from 'react';
 import React, { useState } from 'react';
 import { Calendar, User, ArrowRight, Clock, X } from 'lucide-react';
 
